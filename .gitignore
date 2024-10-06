@@ -1,0 +1,30 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+.python-version
+
+# Jupyter Notebook
+.ipynb_checkpoints
+.virtual_documents
+
+# IPython
+profile_default/
+ipython_config.py
+
+# poetry
+poetry.lock
+
+# Environments
+.env
+.venv
+
+# PyCharm
+.idea/
+
+# Project local directories
+/data/*
+!data/.gitkeep
+/log/*
+!log/.gitkeep
+
+# MacOS
+*.DS_Store

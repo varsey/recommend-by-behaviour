@@ -1,5 +1,7 @@
-h2o
-rectools[all]
 pandas
 numpy
 matplotlib
+rectools[nmslib]
+h2o
+pyarrow
+# sudo apt-get update && sudo apt-get install build-essential + python3.11

@@ -1,6 +1,6 @@
 def processing(purchasers):
     purchasers = purchasers.map(lambda x: [f'{y}' for y in x] if isinstance(x, list) else [f'{x}'])
-    purchasers = list([item for sublist in purchasers for item in sublist])
+    purchasers = list([item for sublist in purchasers for item in sublist if item != '-1'])
     return list(set(purchasers))[:25]
 
 def calculate_recall(row):

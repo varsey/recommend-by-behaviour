@@ -4,4 +4,5 @@ matplotlib
 rectools[nmslib]
 h2o
 pyarrow
+faiss-cpu
 # sudo apt-get update && sudo apt-get install build-essential + python3.11

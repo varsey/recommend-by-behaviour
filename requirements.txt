@@ -5,4 +5,5 @@ rectools[nmslib]
 h2o
 pyarrow
 faiss-cpu
+scikit-learn
 # sudo apt-get update && sudo apt-get install build-essential + python3.11

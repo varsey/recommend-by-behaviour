@@ -41,7 +41,11 @@ if __name__ == '__main__':
     enriched_data = add_similar_items(catalog, enriched_data)
     estimate_recall(test_purchasers, enriched_data)
 
-    enriched_data.rename(columns={'item_id': 'products'}).reset_index(drop=True).to_csv("submit.csv", index=False)
+    (
+        enriched_data.rename(columns={'item_id': 'products'})
+         .reset_index(drop=True)
+         .to_csv("{Path.cwd()}/data/submit.csv", index=False)
+    )
 
     cl.shutdown_h2o()
     log.info('Done')

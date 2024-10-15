@@ -1,5 +1,6 @@
 from pathlib import Path
 from datetime import datetime
+import logging.config
 
 BOLD_SEQ = '\033[1m'
 COLOR_SEQ = "\033[1;%dm"
@@ -10,13 +11,13 @@ LOGGING_CONFIG = {
     "disable_existing_loggers": False,
     "formatters": {
         "default": {
-            "format": "%(asctime)s %(name)-30s %(module)-30s %(funcName)-30s %(levelname)-8s %(message)s",
+            "format": "%(asctime)s %(name)-12s %(module)-12s %(funcName)-12s %(levelname)-8s %(message)s",
             "datefmt": '%Y-%m-%d %H:%M:%S'
         },
     },
     "handlers": {
         "file": {
-            "level": "INFO",
+            "level": "DEBUG",
             "formatter": "default",
             "class": "logging.FileHandler",
             "filename": ''.join([
@@ -39,8 +40,16 @@ LOGGING_CONFIG = {
                 "file",
                 "console"
             ],
-            "level": "INFO",
+            "level": "DEBUG",
             "propagate": False
         },
     },
 }
+
+
+
+class DicLogger:
+    def __init__(self, log_settings: dict):
+        logger = logging.getLogger(__name__)
+        logging.config.dictConfig(log_settings)
+        self.log = logger

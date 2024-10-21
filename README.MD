@@ -10,3 +10,10 @@
 - убедитесь что файлы stokman_catalog_preprocessed.pq и train_actions.pq находятся в /data
 - python3 main.py
 - результирующий файл сохраниться submit.csv в директории /data
+
+
+# Запуск в docker
+
+docker build -t kokos
+
+docker run -v ${PWD}/data:/opt/app/data -t kokos

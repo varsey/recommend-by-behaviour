@@ -9,7 +9,7 @@ log = DicLogger(LOGGING_CONFIG).log
 
 
 TEST_DF_SIZE = 40_000
-SKIP_COLUMNS = ['user_id', 'shop_id', 'day', 'hour', 'pageId', 'datetime', 'item_id', 'is_useful', 'title', 'old_price', 'price']
+SKIP_COLUMNS = ['user_id', 'shop_id', 'day', 'hour', 'pageId', 'datetime', 'item_id', 'is_useful', 'title', 'old_price', 'price', 'add_date']
 
 
 @duration
@@ -53,6 +53,7 @@ class Classificator:
 
         y = "weight"
         x = set(train_h2o.names) - set([y] + SKIP_COLUMNS)
+        log.info(f'Training classificator on the following columns: {x}')
         self.col = x
 
         train_h2o[y] = train_h2o[y].asfactor()

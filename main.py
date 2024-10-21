@@ -16,8 +16,8 @@ log = DicLogger(LOGGING_CONFIG).log
 
 
 if __name__ == '__main__':
-    catalog_path = f'{Path.cwd()}/data/stokman_catalog_preprocessed.pq'
-    actions_path = f'{Path.cwd()}/data/train_actions.pq'
+    catalog_path = f'{Path.cwd()}/data/cat.csv'
+    actions_path = f'{Path.cwd()}/data/sample_actions.pq'
     interactions, items, catalog = etl.load_data(catalog_path, actions_path)
 
     inters = etl.generate_features(interactions, items)
@@ -44,7 +44,7 @@ if __name__ == '__main__':
     (
         enriched_data.rename(columns={'item_id': 'products'})
          .reset_index(drop=True)
-         .to_csv("{Path.cwd()}/data/submit.csv", index=False)
+         .to_csv(f"{Path.cwd()}/data/submit.csv", index=False)
     )
 
     cl.shutdown_h2o()

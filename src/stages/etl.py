@@ -6,7 +6,7 @@ from src.decorators import duration
 
 @duration
 def load_data(catalog_path: str, actions_path: str) -> (pd.DataFrame, pd.DataFrame):
-    catalog = pd.read_parquet(catalog_path, engine='pyarrow')
+    catalog = pd.read_csv(catalog_path)
     actions = pd.read_parquet(actions_path, engine='pyarrow')
 
     # Фильтруем ложные айдишники

@@ -22,7 +22,6 @@ def add_similar_items(catalog: pd.DataFrame, enriched_data: pd.DataFrame) -> pd.
 
     index = create_index_hnsw(tfidf_matrix)
 
-    @duration
     def get_similar(x):
         res = x
         for y in x:

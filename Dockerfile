@@ -1,6 +1,6 @@
 FROM python:3.11-slim
 
-RUN apt-get update && apt-get -y install build-essential
+RUN apt-get update && apt-get -y install build-essential openjdk-17-jdk software-properties-common wget
 
 COPY requirements.txt /opt/app/requirements.txt
 RUN pip3 install -r /opt/app/requirements.txt
